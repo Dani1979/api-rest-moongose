@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const service = require('../services');
 
 
 //funcion para registro de un usuario
