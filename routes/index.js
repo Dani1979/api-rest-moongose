@@ -6,7 +6,8 @@ const express = require('express');
 const api = express.Router()
 //import functions controllers
 const ProductCtrl = require('../controllers/product');
-
+// import middleware to validate sesion token
+const auth = require('../middelwares/auth');
 
 //end point to get de products
 api.get('/product',ProductCtrl.getProducts)
@@ -18,5 +19,12 @@ api.post('/product',ProductCtrl.saveProduct)
 api.put('/product/:productID',ProductCtrl.updateProduct)
 //end point to delete de product
 api.delete('/product/:productID',ProductCtrl.deleteProduct)
+//protected end point with middleware
+api.get('/prueba',auth.isAuth,function(req,res){
+  res.status(200).send({message: `La autorizacion ha sido corecta`})
+
+})
+
+
 
 module.exports= api

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = require('./app');
 const config= require('./config');
 
+
 // Before stand up the server, we make sure that the conexion to database is satisfactory
 
 mongoose.connect(config.db ,(err, res)=>{
